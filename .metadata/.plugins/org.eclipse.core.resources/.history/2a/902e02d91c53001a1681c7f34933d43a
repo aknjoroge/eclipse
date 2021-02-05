@@ -1,0 +1,20 @@
+package number;
+
+public class number {
+	public static void main(String[]args){
+	int a = 0;
+	int b;
+	while (a < 10){
+		System.out.println("a = " );
+		System.out.print(b );
+		b = a;
+		a ++;
+		
+	}
+	
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package tik;
+
+public class tok {
+	public static void main(String [] args){
+		String[] [] name = new String [2][2];
+		name [0] [0] ="alex";
+		name[0][1] ="karanja";
+		name [1][0] = "faith";
+		name [1][1] ="chep";
+		
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
+	
+				System.out.print(name);
+		System.out.print( name[i][j]);
+		
+			}
+		}
+	}
+
+}
