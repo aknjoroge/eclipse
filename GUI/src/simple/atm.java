@@ -37,67 +37,73 @@ public class atm {
 	JLabel lblNewLabel_2 , lblNewLabel_3 ,lblNewLabel_4;
 	private JPanel panel_1;
 	private JButton btnNewButton_3;
+	private JButton btnOk;
 
 	/**
 	 * Launch the application.
 	 */
 	
 	private void checkcredential() {
-		String accountnumberone ="123";
-		String accountone = "alexander K.N";
-		String nametone = "Mr.alex";
-		String emailtone = "alex@techkey.co.ke";
-		String passone="12345";
-		
-		String accountnumbertwo ="321";
-		String accounttwo = "john prosor";
-		String emailttwo = "john@icloud.com";
-		String namettwo = "Mr.john";
-		String passtwo="54321";
-		
-		
-		if(globpin.equals(passone)&& globnumber.equals(accountnumberone)  ) {
+		try {
+			String accountnumberone ="123";
+			String accountone = "alexander K.N";
+			String nametone = "Mr.alex";
+			String emailtone = "alex@techkey.co.ke";
+			String passone="12345";
 			
-			Calendar tt = new GregorianCalendar();
-			currentuser="one";
+			String accountnumbertwo ="321";
+			String accounttwo = "john prosor";
+			String emailttwo = "john@icloud.com";
+			String namettwo = "Mr.john";
+			String passtwo="54321";
+			
+			
+			if(globpin.equals(passone)&& globnumber.equals(accountnumberone)  ) {
+				
+				Calendar tt = new GregorianCalendar();
+				currentuser="one";
 
-	        int hr = tt.get(0);
-	        int min = tt.get(12);
-	        int sc = tt.get(13);
-	         lastlogone= hr+":"+min+":"+sc+".";
-	        
+		        int hr = tt.get(0);
+		        int min = tt.get(12);
+		        int sc = tt.get(13);
+		         lastlogone= hr+":"+min+":"+sc+".";
+		        
+				
+				entersystem();
+				lblNewLabel_2.setText(accountone);
+				lblNewLabel_3.setText(emailtone);
+				
 			
-			entersystem();
-			lblNewLabel_2.setText(accountone);
-			lblNewLabel_3.setText(emailtone);
-			
-		
-			state="logedin";
-			txtMain.setText("Welcome : "+nametone +"\n Balance is : "+balanceone+"\n Last login in time :" +lastlogone );
-			//account one
-		}else if( globpin.equals(passtwo)&& globnumber.equals(accountnumbertwo) ) {
-			//account two
-			Calendar tt = new GregorianCalendar();
-			currentuser="two";
+				state="logedin";
+				txtMain.setText("Welcome : "+nametone +"\n Balance is : "+balanceone+"\n Last login in time :" +lastlogone );
+				//account one
+			}else if( globpin.equals(passtwo)&& globnumber.equals(accountnumbertwo) ) {
+				//account two
+				Calendar tt = new GregorianCalendar();
+				currentuser="two";
 
-	        int hr = tt.get(0);
-	        int min = tt.get(12);
-	        int sc = tt.get(13);
-	         lastlogtwo= hr+":"+min+":"+sc+".";
-	        
-			entersystem();
-			lblNewLabel_2.setText(accounttwo);
-			lblNewLabel_3.setText(emailttwo);
-			state="logedin";
-			
-			txtMain.setText("Welcome : "+namettwo +"\n"+" Balance is : "+balancetwo+"\nLast login in time :" +lastlogtwo);
-			
-			
-			
-		}else {
-			txtMain.setText("no account");
-			//no account
+		        int hr = tt.get(0);
+		        int min = tt.get(12);
+		        int sc = tt.get(13);
+		         lastlogtwo= hr+":"+min+":"+sc+".";
+		        
+				entersystem();
+				lblNewLabel_2.setText(accounttwo);
+				lblNewLabel_3.setText(emailttwo);
+				state="logedin";
+				
+				txtMain.setText("Welcome : "+namettwo +"\n"+" Balance is : "+balancetwo+"\nLast login in time :" +lastlogtwo);
+				
+				
+				
+			}else {
+				txtMain.setText("no account");
+				//no account
+			}
+		}catch(Exception e) {
+			System.out.println("");
 		}
+		
 		
 		// TODO Auto-generated method stub
 		
@@ -200,7 +206,8 @@ public class atm {
 		 	public void actionPerformed(ActionEvent arg0) {
 		 		if(state.equals("logedin")) {
 		 			state="deposit";
-			 		txtMain.setText("Enter amount to Deposit:\n");
+		 			txtMain.setText(null);
+			 		//txtMain.setText("Enter amount to Deposit:\n");
 		 		}
 		 		else {
 		 			
@@ -218,7 +225,7 @@ public class atm {
 		 		
 		 		if(state.equals("logedin")) {
 		 			state="withdraw";
-			 		txtMain.setText("Enter amount to Withdraw:\n");
+			 		txtMain.setText(null);
 		 		}
 		 		else {
 		 			
@@ -391,6 +398,15 @@ public class atm {
 		 			String button = txtMain.getText() + button_5.getText();
 		 			txtMain.setText(button);	
 		 			
+		 		}else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_5.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_5.getText();
+		 			txtMain.setText(button);
+		 		 
 		 		}
 		 		
 		 	}
@@ -438,6 +454,16 @@ public class atm {
 		 			txtMain.setText(button);	
 		 			
 		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_6.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_6.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
 				
 				
 			}
@@ -482,6 +508,16 @@ public class atm {
 		 			txtMain.setText(button);	
 		 			
 		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_7.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_7.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
 				
 				
 			}
@@ -525,6 +561,15 @@ public class atm {
 		 			String button = txtMain.getText() + button_8.getText();
 		 			txtMain.setText(button);	
 		 			
+		 		}else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_8.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_8.getText();
+		 			txtMain.setText(button);
+		 		 
 		 		}
 				
 			}
@@ -568,6 +613,16 @@ public class atm {
 		 			String button = txtMain.getText() + button_9.getText();
 		 			txtMain.setText(button);	
 		 			
+		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_9.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_9.getText();
+		 			txtMain.setText(button);
+		 		 
 		 		}
 				
 				
@@ -613,6 +668,16 @@ public class atm {
 		 			txtMain.setText(button);	
 		 			
 		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_10.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_10.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
 				
 				
 			}
@@ -657,6 +722,17 @@ public class atm {
 		 			txtMain.setText(button);	
 		 			
 		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_11.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_11.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+				
 				
 				
 			}
@@ -699,6 +775,16 @@ public class atm {
 		 			String button = txtMain.getText() + button_12.getText();
 		 			txtMain.setText(button);	
 		 			
+		 		}
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_12.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_12.getText();
+		 			txtMain.setText(button);
+		 		 
 		 		}
 				
 				
@@ -743,12 +829,21 @@ public class atm {
 		 			txtMain.setText(button);	
 		 			
 		 		}
-				
+		 		else if(state.equals("deposit")) {
+		 			String button = txtMain.getText() +button_13.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
+		 		else if(state.equals("withdraw")) {
+		 			String button = txtMain.getText() +button_13.getText();
+		 			txtMain.setText(button);
+		 		 
+		 		}
 				
 			}
 		});
 		
-		JButton btnOk = new JButton("ok");
+		btnOk = new JButton("ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(state.equals("lock")) {
@@ -786,20 +881,71 @@ public class atm {
 					
 					
 				}else if(state.equals("deposit")) {
+					String person="balance"+currentuser;
+					if(person.equals("balanceone")) {
+
+						String dp=txtMain.getText().toString();
+						double balanceperson=Double.parseDouble(dp);
+						double add = balanceperson+balanceone;
+						balanceone=add;
+						
+						txtMain.setText(null);
+						String amount=String.valueOf(add);
+						txtMain.setText("successfully deposited: "+dp);
+						
+						state="logedin";	
+					}else if(person.equals("balancetwo")) {
+						
+
+						String dp=txtMain.getText().toString();
+						double balanceperson=Double.parseDouble(dp);
+						double add = balanceperson+balancetwo;
+						balancetwo=add;
+						//double data=Double.parseDouble(dp);
+						String amount=String.valueOf(add);
+						txtMain.setText(null);
+						
+						txtMain.setText("successfully deposited: "+dp);
+						
+						state="logedin";
+					}else {
+						
+					}
 					
-					String dp=txtMain.getText().toString();
-					//double data=Double.parseDouble(dp);
-					txtMain.setText(null);
-					txtMain.setText("successfully deposited:");
-					state="logedin";
+					
 				}
 				else if(state.equals("withdraw")) {
+					String person="balance"+currentuser;
+					if(person.equals("balanceone")) {
+						
+						String dp=txtMain.getText().toString();
+						double balanceperson=Double.parseDouble(dp);
+						double minus = balanceone-balanceperson;
+						balanceone=minus;
+						//double data=Double.parseDouble(dp);
+						String amount=String.valueOf(minus);
+						txtMain.setText(null);
+						txtMain.setText("successfully Withdrawn"+dp);
+						state="logedin";
+						
+						
+					}else if(person.equals("balancetwo")) {
+						String dp=txtMain.getText().toString();
+						double balanceperson=Double.parseDouble(dp);
+						double minus = balancetwo-balanceperson;
+						balancetwo=minus;
+						//double data=Double.parseDouble(dp);
+						String amount=String.valueOf(minus);
+						txtMain.setText(null);
+						txtMain.setText("successfully Withdrawn"+dp);
+						state="logedin";
+						
+						
+					}else {
+						
+					}
 					
-					String dp=txtMain.getText().toString();
-					//double data=Double.parseDouble(dp);
-					txtMain.setText(null);
-					txtMain.setText("successfully Withdrawn:..processing cash");
-					state="logedin";
+					
 				}
 				else if(state.equals("loan")) {
 					
